@@ -7,45 +7,65 @@
   vertical-align: baseline;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
+.wrapper {
+  margin: auto;
+  width: 80vw;
+}
+
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 0.8rem;
 }
 
 .header {
-  padding: 0 10px 0 10px;
-  background-color: #080808;
-  color: white;
+  padding: 0;
 }
-
-.header__logo {
-  font-size: 32px;
-  margin: 0;
-}
-
 .header__nav {
-  margin-left: 20px;
+  margin: auto;
+  --size-padding: 5px;
+  color: white;
+  padding: var(--size-padding) 0 var(--size-padding) 0;
+  background-color: #080808;
 }
-
 .header__list {
   display: flex;
-  flex-direction: row;
+  justify-content: space-evenly;
+  flex-flow: row nowrap;
   list-style: none;
-  margin: 0;
-  padding: 0;
   gap: 10px;
 }
-
 .header__list-item--active {
   font-weight: bold;
 }
-
 .header__link {
   text-decoration: none;
   color: white;
 }
-
 .header__link:hover {
-  color: cyan;
+  text-decoration: none;
+}
+.header__banner {
+  height: 10vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center -250px;
+}
+.header__banner--is-day {
+  background-image: url("../images/california_hotel_room_banner_day.jpg");
+}
+.header__banner--is-night {
+  background-image: url("../images/california_hotel_room_banner_night.jpg");
+}
+
+.card-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid green;
+  flex: auto;
+  height: 50vh;
 }/*# sourceMappingURL=main.css.map */

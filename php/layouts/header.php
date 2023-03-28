@@ -6,6 +6,8 @@
         "Boutique",
         "Réservations"
     );
+
+    $day = "nuit";
 ?>
 
 <header class="header">
@@ -18,5 +20,5 @@
             ?>
         </ul>
     </nav>
-    <div class="header__banner"></div>
+    <div class="header__banner header__banner--<?php echo ($day == "Jour" ? "is-day" : "is-night"); ?>"></div>
 </header>

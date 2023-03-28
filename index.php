@@ -9,7 +9,8 @@
 </head>
 <body>
     <div class="wrapper">
-        <?php include "header.php" ?>
+        <?php include "php/layouts/header.php" ?>
+        <?php include "php/components/top_3_offers.php" ?>
     </div>
 </body>
 </html>

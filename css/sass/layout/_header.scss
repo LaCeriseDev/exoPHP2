@@ -1,38 +1,42 @@
-body { margin: 0; padding: 0; width: 100vw;}
+.header { padding: 0; 
+    &__nav {
+        margin: auto;
+        --size-padding: 5px;
+        color: white;
+        padding: var(--size-padding) 0 var(--size-padding) 0;
+        background-color: #080808;
+    }
 
-.header {
-    padding: 0 10px 0 10px;
-    background-color: #080808;
-    color: white;
-}
+    &__list {
+        display: flex;
+        justify-content: space-evenly;
+        flex-flow: row nowrap;
+        list-style: none;
+        gap: 10px;
 
-.header__logo {
-    font-size: 32px;
-    margin: 0;
-}
+        &-item {
+            &--active {
+                font-weight: bold;
+            }
+        }
+    }
 
-.header__nav {
-    margin-left: 20px;
-}
+    &__link {
+        text-decoration: none;
+        color: white;
 
-.header__list {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 10px;
-}
+        &:hover {
+            text-decoration: none;
+        }
+    }
 
-.header__list-item--active {
-    font-weight: bold;
-}
+    &__banner {
+        height: 10vw;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center -250px;
+        &--is-day { background-image: url("../images/california_hotel_room_banner_day.jpg"); }
+        &--is-night { background-image: url("../images/california_hotel_room_banner_night.jpg"); }
+    }
 
-.header__link {
-    text-decoration: none;
-    color: white;
-}
-
-.header__link:hover {
-    color: cyan;
 }

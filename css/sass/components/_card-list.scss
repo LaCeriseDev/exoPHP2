@@ -1,0 +1,12 @@
+.card-list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid green;
+    flex: auto;
+    height: 50vh;
+}
