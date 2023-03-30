@@ -1,0 +1,7 @@
+.offers-list {
+    grid-area: offers;
+    display: flex;
+    flex-flow: column nowrap;
+
+    &__title { padding: 0 0 var(--gap) 0; }
+}

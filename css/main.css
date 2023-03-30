@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+:root {
+  --gap: 2vh;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,24 +12,66 @@
   vertical-align: baseline;
 }
 
+body {
+  background-color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+section > span {
+  font-size: clamp(1.3rem, -0.1rem + 2vw, 2rem);
+}
+
 .wrapper {
-  margin: auto;
-  width: 80vw;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-areas: "header header header header header header header header header header header header" "main main main main main main main main main main main main" "main main main main main main main main main main main main" "main main main main main main main main main main main main" "main main main main main main main main main main main main" "main main main main main main main main main main main main" "footer footer footer footer footer footer footer footer footer footer footer footer";
+}
+
+main {
+  grid-area: main;
+  transition: 0.7s cubic-bezier(0.13, 0.89, 0.38, 0.65);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: var(--gap);
+  grid-template-areas: "offers offers offers" "offers offers offers" "services services services";
+}
+
+footer {
+  grid-area: footer;
+}
+
+.overlay {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
 }
 
 * {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-family: "Karla", sans-serif;
   font-size: 0.8rem;
 }
 
 .header {
+  grid-area: header;
   padding: 0;
 }
 .header__nav {
   margin: auto;
   --size-padding: 5px;
-  color: white;
   padding: var(--size-padding) 0 var(--size-padding) 0;
+  color: white;
   background-color: #080808;
 }
 .header__list {
@@ -32,7 +79,6 @@
   justify-content: space-evenly;
   flex-flow: row nowrap;
   list-style: none;
-  gap: 10px;
 }
 .header__list-item--active {
   font-weight: bold;
@@ -45,10 +91,16 @@
   text-decoration: none;
 }
 .header__banner {
-  height: 10vw;
-  background-repeat: no-repeat;
+  min-height: 80px;
+  max-height: 100px;
   background-size: cover;
-  background-position: center -250px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  text-align: center;
+  vertical-align: middle;
+  display: grid;
+  place-items: center start;
+  padding-left: 10%;
 }
 .header__banner--is-day {
   background-image: url("../images/california_hotel_room_banner_day.jpg");
@@ -56,16 +108,153 @@
 .header__banner--is-night {
   background-image: url("../images/california_hotel_room_banner_night.jpg");
 }
+.header__title {
+  color: white;
+  font-size: 3rem;
+}
+
+.offers-list {
+  grid-area: offers;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.offers-list__title {
+  padding: 0 0 var(--gap) 0;
+}
 
 .card-list {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  gap: 20px;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: var(--gap);
 }
 
 .card {
-  border: 1px solid green;
-  flex: auto;
+  width: calc(33.33% - var(--gap));
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 -2px 2px rgba(0, 0, 0, 0.11);
+  border-radius: 2%;
+  overflow: hidden;
+  transition: 0.3s;
   height: 50vh;
+  position: relative;
+}
+.card:hover {
+  width: 45%;
+}
+
+.card__title {
+  padding: 10px 0;
+  font-size: clamp(0.8rem, -0.1rem + 2vw, 1.5rem);
+  font-weight: bolder;
+  text-align: left;
+  transition: 0.3s;
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  top: 80%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 2;
+  color: white;
+}
+
+.card:hover .card__title {
+  top: 70%;
+}
+
+.card__image {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.5s;
+}
+
+.card::before .card__image {
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.card__description {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 0;
+  background-color: white;
+  text-align: center;
+  font-size: 0;
+  font-weight: 400;
+  transition: 0.2s;
+}
+
+.card:hover .card__description {
+  padding: 10px;
+  height: 10%;
+  width: 100%;
+  font-size: clamp(1rem, -0.9rem + 2vw, 1rem);
+}
+
+.article__image {
+  width: 100%;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.service-list {
+  grid-area: services;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.service {
+  height: 20vh;
+  color: white;
+  transition: 0.3s cubic-bezier(0.13, 0.89, 0.38, 0.65);
+  position: relative;
+  cursor: pointer;
+}
+.service:nth-of-type(1) {
+  background: url("../images/services/california_hotel_restauration_interior_at_the_table.jpg");
+  aspect-ratio: 1;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.service:nth-of-type(2) {
+  background: url("../images/services/california_hotel_car_driver.jpg");
+  aspect-ratio: 1;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.service:nth-of-type(3) {
+  background: url("../images/services/california_hotel_pool_interior.jpg");
+  aspect-ratio: 1;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.service:nth-of-type(4) {
+  background: url("../images/services/california_hotel_relaxation_massage.jpg");
+  aspect-ratio: 1;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.service .overlay {
+  opacity: 1;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+}
+.service:hover {
+  font-size: 1.2rem;
+  border-radius: 50%;
+}
+.service:hover .overlay {
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
 }/*# sourceMappingURL=main.css.map */
