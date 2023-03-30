@@ -14,6 +14,7 @@
                 <?php include "section-best-offers.php"; ?>
                 <?php include "section-service.php"; ?>
             </main>
+            <?php include "footer.php"; ?>
         </div>
     </body>
 </html>

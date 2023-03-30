@@ -1,8 +1,14 @@
 @import "sass/base/_reset";
 @import "sass/base/_typography";
 @import "sass/layout/_header";
-@import "sass/layout/_section-best-offers";
+@import "sass/layout/_main";
+@import "sass/layout/_footer";
 
 @import "sass/components/_card-list";
 @import "sass/components/_article";
 @import "sass/components/_service";
+
+header { height: 20vh; }
+main { height: 80vh; }
+.offers-list { height: 60%; }
+.section-service { height: 40%; }

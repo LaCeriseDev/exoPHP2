@@ -1,0 +1,10 @@
+.offers-list,
+.section-service {
+    display: flex;
+    flex-flow: column nowrap;
+
+    &__title {  text-align: center;}
+}
+
+.offers-list { grid-area: offers; }
+.section-service { grid-area: services; }

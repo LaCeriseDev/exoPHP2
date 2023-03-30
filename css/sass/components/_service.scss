@@ -1,10 +1,7 @@
 .service-list {
-    grid-area: services;
-
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-around;
+    gap: var(--gap);
 }
 
 .service {

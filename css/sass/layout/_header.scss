@@ -1,9 +1,11 @@
 .header { 
     grid-area: header;
     padding: 0;
+
     &__nav {
         margin: auto;
-        --size-padding: 5px;
+        --size-padding: 20px;
+        // height: 100px;
         padding: var(--size-padding) 0 var(--size-padding) 0;
         color: white;
         background-color: #080808;

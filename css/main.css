@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 :root {
-  --gap: 2vh;
+  --gap: 3rem;
 }
 
 * {
@@ -43,7 +43,6 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: var(--gap);
   grid-template-areas: "offers offers offers" "offers offers offers" "services services services";
 }
 
@@ -69,7 +68,7 @@ footer {
 }
 .header__nav {
   margin: auto;
-  --size-padding: 5px;
+  --size-padding: 20px;
   padding: var(--size-padding) 0 var(--size-padding) 0;
   color: white;
   background-color: #080808;
@@ -113,13 +112,27 @@ footer {
   font-size: 3rem;
 }
 
-.offers-list {
-  grid-area: offers;
+.offers-list,
+.section-service {
   display: flex;
   flex-flow: column nowrap;
 }
-.offers-list__title {
-  padding: 0 0 var(--gap) 0;
+.offers-list__title,
+.section-service__title {
+  text-align: center;
+}
+
+.offers-list {
+  grid-area: offers;
+}
+
+.section-service {
+  grid-area: services;
+}
+
+footer {
+  grid-area: footer;
+  background: black;
 }
 
 .card-list {
@@ -206,11 +219,9 @@ footer {
 }
 
 .service-list {
-  grid-area: services;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-around;
+  gap: var(--gap);
 }
 
 .service {
@@ -257,4 +268,20 @@ footer {
 .service:hover .overlay {
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+header {
+  height: 20vh;
+}
+
+main {
+  height: 80vh;
+}
+
+.offers-list {
+  height: 60%;
+}
+
+.section-service {
+  height: 40%;
 }/*# sourceMappingURL=main.css.map */
